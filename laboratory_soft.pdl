@@ -1,0 +1,332 @@
+PROGRAM laboratory_soft PROG_ARM = 1
+  
+VAR
+  i : INTEGER
+  j : INTEGER (1) NOSAVE
+  xcoord : REAL
+  FLAG : BOOLEAN
+
+ROUTINE paleteCoord (palID : INTEGER) :  REAL
+
+VAR outX : REAL
+
+BEGIN
+  IF palID = 1 THEN
+    outX := 421
+  ELSE
+    outX := 421 - 30 * (palID - 1)
+  ENDIF
+  
+  RETURN(outX)  
+END paleteCoord
+
+ROUTINE demo_motion(m : INTEGER) : INTEGER
+  
+VAR
+  xcoord : REAL
+BEGIN
+  $CNFG_CARE := FALSE
+  xcoord:= 421
+  	IF m = 1 THEN
+		xcoord := 421
+	ELSE
+  		xcoord := xcoord - 30*(m-1)
+	ENDIF
+	
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (xcoord,396,130,0,180,10.814,'')
+	ELSE
+		RETURN(1)
+	ENDIF
+  	delay(30)
+
+	IF $FMI[2] = 1 THEN
+		MOVE LINEAR TO POS (xcoord,396,46,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (xcoord,396,130,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (400,214.546,102.642,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (710,214.546,102.642,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (710,-195.093,102.642,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (501,-195.093,102.642,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (501,-195.093,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (501,-450,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (501,0,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (341,0,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+  		MOVE LINEAR TO POS (341,-450,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+  	IF $FMI[2] = 1 THEN
+		MOVE LINEAR TO POS (181,-450,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (181,-210,60,0,180,100.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (501,-205,60,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+		MOVE LINEAR TO POS (xcoord,396,130,0,180,10.814,'')
+	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (xcoord,396,46,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	IF $FMI[2] = 1 THEN
+	  	MOVE LINEAR TO POS (xcoord,396,130,0,180,10.814,'')
+  	ELSE
+		RETURN(1)
+	ENDIF
+	delay(30)
+
+	m := m+1
+	IF m = 11 THEN
+		m:=1
+	ENDIF
+  RETURN(m)
+END demo_motion
+  
+ROUTINE check_laser(paleteID : INTEGER) : BOOLEAN
+  
+VAR paleteXCoord : REAL
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+  
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 46, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(501, -195.093, 120, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(710, -195.093, 120, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 46, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  
+  RETURN(TRUE)
+END check_laser
+  
+ROUTINE check_ultrasonic(paleteID : INTEGER) : BOOLEAN
+  
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+  
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 46, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(501, 214, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(501, 214, 60, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(710, 214, 60, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 46, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(paleteXCoord, 396, 130, 0, 180, 10.814, '')
+  DELAY 30
+  
+  RETURN(TRUE)
+END check_ultrasonic
+
+ROUTINE check_photosensor(paleteID : INTEGER) : BOOLEAN
+
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+
+  RETURN(TRUE)
+END check_photosensor
+
+ROUTINE check_inductive (paleteID : INTEGER) : BOOLEAN
+
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+
+  RETURN(TRUE)
+END check_inductive
+
+ROUTINE check_contrast(paleteID : INTEGER) : BOOLEAN
+
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+
+  RETURN(TRUE)
+END check_contrast
+
+	
+ROUTINE check_capacitive(paleteID : INTEGER) : BOOLEAN
+
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+
+  RETURN(TRUE)
+END check_capacitive
+
+		
+ROUTINE check_photoelectric(paleteID : INTEGER) : BOOLEAN
+
+VAR paleteXCoord : REAL
+  
+BEGIN
+  paleteXCoord := paleteCoord(paleteID)
+
+  RETURN(TRUE)
+END check_photoelectric
+
+
+ROUTINE test_square : BOOLEAN
+BEGIN
+  MOVE LINEAR TO POS(600, 300, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(400, 300, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(400, 100, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(600, 100, 130, 0, 180, 10.814, '')
+  DELAY 30
+  MOVE LINEAR TO POS(600, 300, 130, 0, 180, 10.814, '')
+  DELAY 30
+  
+  RETURN(TRUE)
+END test_square
+
+
+ROUTINE test_movefly : BOOLEAN
+VAR p1, p2, p3 : POSITION
+BEGIN
+  
+  p1 := POS(360,  300, 130, 0, 180, 10.814, '')
+  p2 := POS(360, -100, 130, 0, 180, 10.814, '')
+  p3 := POS(660, -100, 130, 0, 180, 10.814, '')
+  
+  MOVE LINEAR TO p1
+  MOVEFLY LINEAR TO p2 ADVANCE
+  MOVE LINEAR TO p3
+  DELAY 50
+
+  RETURN(TRUE)
+END test_movefly
+  
+  
+BEGIN CYCLE
+  $CNFG_CARE := FALSE
+  SELECT $FMI[2] OF
+ 	CASE (1):
+		j:= demo_motion(j)
+	CASE(254):
+  		check_ultrasonic($FMI[3])
+	CASE(253):
+		check_laser($FMI[3])
+	CASE(252):
+		check_photosensor($FMI[3])
+	CASE(251):
+		check_inductive($FMI[3])
+	CASE(250):
+		check_contrast($FMI[3])
+	CASE(249):
+		check_capacitive($FMI[3])
+	CASE(248):
+		check_photoelectric($FMI[3])
+  ENDSELECT
+  
+END laboratory_soft
