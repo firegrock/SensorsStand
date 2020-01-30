@@ -1,0 +1,36 @@
+VAR
+	Robot : FBComauRobot;
+	xcoord : REAL;
+	palNum : INT;
+	typeOfFunctionality : USINT;
+	XX930A2A2M12_value : INT; (*The analog value from ultrasonic distance meter*)
+	XUK8TAE2MM12_value : INT; (*The analog value from laser distance meter*)
+	XUAH0203S_status : BOOL; (*The discrete output of photosensor's emitter*)
+	XS7D1A1PAL2_status : BOOL; (*The discrete output of Inductive sensor*)
+	ODGA44A5_status : BOOL; (*The discrete output of contrast tag's sensor*)
+	XT118B1PCL2_status : BOOL; (*The discrete output of capacitive sensor*)
+	XUB9BPANL2_status : BOOL; (*The discrete output of Photo-electric sensor*)
+	ultrasonicDistance : REAL;
+	laserDistance : REAL;
+END_VAR
+VAR CONSTANT
+	laserCoef : REAL := 8965.486725663;
+	ultrasonicCoef : REAL := 17195.1871657754;
+END_VAR
+VAR
+	outputBeginPackFlag : BOOL;
+	motionType : DINT;
+	targetCoordX : INT;
+	targetCoordY : INT;
+	targetCoordZ : REAL;
+	targetCoordA : REAL;
+	targetCoordE : REAL;
+	targetCoordR : REAL;
+	targetAngleJ1 : REAL;
+	targetAngleJ2 : REAL;
+	targetAngleJ3 : REAL;
+	targetAngleJ4 : REAL;
+	targetAngleJ5 : REAL;
+	targetAngleJ6 : REAL;
+	outputEndPackFlag : BOOL;
+END_VAR

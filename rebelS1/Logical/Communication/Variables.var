@@ -1,0 +1,24 @@
+VAR
+	cutBuf : STRING[7];
+	Server_1 : Server_typ;
+	buff : STRING[6];
+	p : STRING[1];
+	intRobX : INT;
+	intRobY : INT;
+	intRobZ : INT;
+	intRobA : INT;
+	intRobE : INT;
+	intRobR : INT;
+	intRobJ1 : INT;
+	intRobJ2 : INT;
+	intRobJ3 : INT;
+	intRobJ4 : INT;
+	intRobJ5 : INT;
+	intRobJ6 : INT;
+	outIntValue1 : INT;
+	outIntValue2 : INT;
+	outIntValue3 : INT;
+	outIntFlag1 : INT;
+	outIntFlag2 : INT;
+	outIntEndPackFlag : INT;
+END_VAR

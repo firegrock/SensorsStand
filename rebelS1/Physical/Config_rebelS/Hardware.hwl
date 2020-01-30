@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<BR.AS.HardwareTopology Version="0.0.0.1">
+  <Modules>
+    <Module Name="X20CP1382_RT" Type="X20CP1382-RT" X="100" Y="100" />
+    <Module Name="X3" Type="X3" X="251" Y="103" />
+    <Module Name="X20TB1F2" Type="X20TB1F" X="251" Y="126" />
+    <Module Name="X2" Type="X2" X="238" Y="103" />
+    <Module Name="X20TB1F1" Type="X20TB1F" X="238" Y="126" />
+    <Module Name="X1" Type="X1" X="225" Y="103" />
+    <Module Name="X20TB1F" Type="X20TB1F" X="225" Y="126" />
+    <Module Name="X20IF1083-1_COMAU_64" Type="FBE.BuR_X20IF1083_1_COMAU_64_the_right_ver" X="387" Y="382" />
+  </Modules>
+  <Links>
+    <Link From="X20CP1382_RT" To="X20IF1083-1_COMAU_64" FromPort="IF3" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="153" Y="188" />
+      <Point X="153" Y="188" />
+      <Point X="153" Y="203" />
+      <Point X="153" Y="445" />
+      <Point X="420" Y="445" />
+      <Point X="420" Y="433" />
+      <Point X="420" Y="426" />
+      <Point X="420" Y="426" />
+    </Link>
+  </Links>
+  <InfoElements />
+</BR.AS.HardwareTopology>

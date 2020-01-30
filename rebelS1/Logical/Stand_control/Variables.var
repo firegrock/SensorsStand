@@ -1,0 +1,5 @@
+VAR
+	paleteID : USINT;
+	sensorID : USINT;
+	i : DINT;
+END_VAR

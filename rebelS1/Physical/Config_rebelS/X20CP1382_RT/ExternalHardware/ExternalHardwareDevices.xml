@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalHardware>
+  <Modules>
+    <Module ModuleID="FBE.BuR_X20IF1083_1_COMAU_64_the_right_ver" Version="1.0" OrderNumber="X20IF1083-1_COMAU_64">
+      <SourceFile OriginalFile="BuR_X20IF1083_1_COMAU_64_the_right_ver.xdd" TranslationFile="81YBU6LR.ext" />
+    </Module>
+  </Modules>
+</ExternalHardware>
